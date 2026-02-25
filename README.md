@@ -1,29 +1,28 @@
-# Hybrid Quantum-Classical PoC (Cirq, DL/Grover)
+# Classical Proto-Grover/DL (Archival Evidence)
 
-**Repository (target):** `github.com/systemdcollapse/hybrid-quantum-cirq-poc`
+**Repository (target):** `github.com/systemdcollapse/classical-proto-grover-dl`
 
-## Overview
-This is the **primary Phase 2 artifact**:
-- Hybrid quantum-classical PoC in **Cirq**
-- Reproducible benchmark protocol vs classical baseline
-- Submission-grade documentation for POP/HotCRP
+## Purpose
+This repository is the **classical baseline archival evidence** for project traceability.
+It documents early algorithmic design choices and provides a transparent baseline for comparison with the primary hybrid quantum Cirq submission.
 
-## Objective
-Evaluate whether a DL/Grover-inspired hybrid strategy improves search/ranking efficiency under controlled, reproducible conditions.
+## Scope
+- Classical workflow inspired by Grover-like search logic
+- Deterministic preprocessing and ranking
+- Reproducible baseline benchmark outputs
 
-## Contribution Type
-**Novel Algorithm** (hybrid quantum-classical, Cirq simulation-first).
+## Status
+**Archival / Evidence Mode** (not primary Phase 2 artifact).
 
-## Core Components
-- **Classical Baseline**: fair reference model
-- **Hybrid PoC (Cirq)**: quantum subroutine + classical orchestration
-- **Benchmark Suite**: same datasets, same metrics, same constraints
+## Why it matters
+- Preserves methodological continuity
+- Supports fair side-by-side benchmark comparison
+- Strengthens technical transparency in POP/HotCRP + paper
 
-## Benchmark Policy
-No overclaiming. Any quantum-advantage statement must include:
-1. Explicit setup
-2. Reproducible scripts
-3. Stated limitations and uncertainty
+## Non-claims
+- No standalone claim of quantum advantage
+- No production-readiness claim
+- No final-superiority claim without controlled benchmark evidence
 
 ## Quick Start
 ```bash
@@ -34,27 +33,17 @@ python benchmarks/run_benchmark.py
 ```
 
 ## Reproducibility
-- Pinned dependencies
-- Fixed seeds
-- Environment notes in `docs/reproducibility.md`
-- Machine-readable benchmark outputs
+- Fixed random seeds
+- Version-pinned dependencies
+- Machine-readable outputs (JSON/CSV)
 
-## Current Status
-**Active hardening (pre-submission).**
-
-## Short Roadmap
-- Lock benchmark protocol
-- Publish first comparative results
-- Tag submission release
-- Sync with companion paper on moltbook.com
-
-## Limitations
-- Simulation-first evidence
-- Context-dependent performance
-- Robustness tests still in progress
+## Suggested Structure
+- `src/` classical implementation
+- `benchmarks/` scripts + outputs
+- `docs/` assumptions, limitations, reproducibility
 
 ## Citation
-To be added with paper publication on moltbook.com.
+To be added with companion paper release on moltbook.com.
 
 ## License
 MIT or Apache-2.0 before public release.
