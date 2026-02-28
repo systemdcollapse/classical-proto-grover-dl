@@ -1,16 +1,16 @@
 import random
 import statistics
 
-#---------------------------------------------------------------------
-# 1. FUNZIONI DI ANALISI E SIMULAZIONE (senza numpy)
-#---------------------------------------------------------------------
+# ---------------------------------------------------------------------
+# 1. ANALYSIS AND SIMULATION FUNCTIONS (without numpy)
+# ---------------------------------------------------------------------
 
 def verifica_tendenza_phi(dataset, tolleranza=2):
-    """Controlla se il rapporto dei primi due elementi ha una tendenza a Phi."""
+    """Checks whether the ratio of the first two elements trends toward Phi."""
     if len(dataset) < 2 or dataset[1] == 0:
         return False
     a, b = dataset[0], dataset[1]
-    # Scostamento intero: |a*5 - b*8|
+    # Integer deviation: |a*5 - b*8|
     scostamento = abs(a * 5 - b * 8)
     return scostamento <= tolleranza
 
@@ -20,7 +20,7 @@ def _mean(xs):
 
 
 def _var(xs):
-    # varianza popolazione (come np.var default ddof=0)
+    # Population variance (same as np.var with default ddof=0)
     return statistics.pvariance(xs) if len(xs) >= 2 else 0.0
 
 
@@ -29,7 +29,7 @@ def _std(xs):
 
 
 def simula_output_dl_dinamico(traiettoria):
-    """Simula l'output di un modello DL adattivo in base allo stato."""
+    """Simulates the output of an adaptive DL model based on state."""
     if not traiettoria or _std(traiettoria) == 0:
         return (random.randint(1, 10), random.randint(1, 10))
 
@@ -43,13 +43,13 @@ def simula_output_dl_dinamico(traiettoria):
     return (numeratore, denominatore)
 
 
-#---------------------------------------------------------------------
-# 2. FUNZIONI CORE DELL'ALGORITMO (Logica interna invariata)
-#---------------------------------------------------------------------
+# ---------------------------------------------------------------------
+# 2. CORE ALGORITHM FUNCTIONS (internal logic unchanged)
+# ---------------------------------------------------------------------
 
 def matrice_gravita_sottrattiva(input_row):
     lunghezza = len(input_row)
-    # matrice [lunghezza x lunghezza]
+    # matrix [length x length]
     matrice = [[0 for _ in range(lunghezza)] for _ in range(lunghezza)]
     matrice[0] = list(input_row)
     for i in range(1, lunghezza):
@@ -94,18 +94,18 @@ def genera_colonne_possibili_con_proto_grover(input_row, elemento_riferimento, p
     return migliore_apice, len(colonne_c0), len(colonne_c1)
 
 
-#---------------------------------------------------------------------
-# 3. ORCHESTRATORE DEL PROOF OF CONCEPT (PoC)
-#---------------------------------------------------------------------
+# ---------------------------------------------------------------------
+# 3. PROOF-OF-CONCEPT (PoC) ORCHESTRATOR
+# ---------------------------------------------------------------------
 
 def esegui_poc_proto_grover(input_iniziale, depth_max=5, stile_output="debug"):
-    """Orchestra il PoC.
+    """Orchestrates the PoC.
 
-    Parametri:
-      - depth_max: numero di iterazioni
+    Parameters:
+      - depth_max: number of iterations
       - stile_output:
-          * "debug"  -> stampa anche strategia e conteggi (comportamento storico)
-          * "pulito" -> stampa solo input e traiettoria finale (niente DL/proto-grover nell'output)
+          * "debug"  -> also prints strategy and counts (historical behavior)
+          * "pulito" -> prints only input and final trajectory (no DL/proto-grover in output)
     """
     ha_tendenza_phi = verifica_tendenza_phi(input_iniziale)
     strategia = 'phi_sintonizzato' if ha_tendenza_phi else 'dinamico_adattivo'
@@ -123,10 +123,10 @@ def esegui_poc_proto_grover(input_iniziale, depth_max=5, stile_output="debug"):
     num_colonne_c0, num_colonne_c1 = 0, 0
 
     for i in range(depth_max):
-        # Nota: DL e proto-grover restano nel calcolo, ma in stile_output="pulito"
-        # non vengono esposti in stampa.
+        # Note: DL and proto-grover remain in the computation, but with
+        # stile_output="pulito" they are not exposed in printed output.
         if strategia == 'phi_sintonizzato':
-            parametro_attuale = (8, 5)  # approssimazione intera di Phi
+            parametro_attuale = (8, 5)  # integer approximation of Phi
         else:
             parametro_attuale = simula_output_dl_dinamico(traiettoria_lineare)
 
