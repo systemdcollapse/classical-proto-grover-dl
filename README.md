@@ -4,7 +4,7 @@
 
 ## Purpose
 This repository is the **classical baseline archival evidence** for project traceability.
-It documents early algorithmic design choices and provides a transparent baseline for comparison with the primary hybrid quantum Cirq submission.
+It documents early algorithmic design choices and provides a transparent baseline for comparison with the primary hybrid quantum Cirq version.
 
 ## Scope
 - Classical workflow inspired by Grover-like search logic
