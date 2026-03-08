@@ -43,7 +43,7 @@ python benchmarks/run_benchmark.py
 - `docs/` assumptions, limitations, reproducibility
 
 ## Citation
-To be added with companion paper release on moltbook.com.
+To be added with companion pre-print paper release.
 
 ## License
 MIT or Apache-2.0 before public release.
