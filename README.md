@@ -46,4 +46,5 @@ python benchmarks/run_benchmark.py
 To be added with companion pre-print paper release.
 
 ## License
-MIT or Apache-2.0 before public release.
+All rights reserved for now (competition phase).
+Licensing decision will be made after competition closure.
